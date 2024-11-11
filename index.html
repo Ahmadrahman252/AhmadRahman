@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Gabuter</title>
+  <title>Sak Gabutnya Ahman</title>
   <meta name="description" content="Portofolio Ahmad Rahman, Junior Designer dan Developer.">
   <meta name="keywords" content="Desain Grafis, Pengembangan Web, Freelancer, UX/UI">
 
@@ -196,34 +196,20 @@
           </div>
         </div>
 
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Makasih</div>
-
-              <button type="submit" class="btn">Send Message</button>
-            </div>
-
-          </div>
+        <form
+            action="https://formspree.io/f/xldengvw"
+            method="POST"
+            >
+            <label>
+                Email Kamu:
+                <input type="email" name="email" required>
+            </label>
+            <label>
+                Masukkan Pesan:
+                <textarea name="message" required></textarea>
+            </label>
+            <!-- your other form fields go here -->
+            <button type="submit">Kirim Pesan</button>
         </form><!-- End Contact Form -->
 
       </div>
