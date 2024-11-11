@@ -199,17 +199,18 @@
         <form
             action="https://formspree.io/f/xldengvw"
             method="POST"
+            novalidate  
+            style="display: flex; flex-direction: column; gap: 20px; max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9;"
             >
-            <label>
-                Email Kamu:
-                <input type="email" name="email" required>
+            <label style="font-weight: bold; color: #333;">
+                Your email:
+                <input type="email" name="email" required style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; width: 100%; box-sizing: border-box;">
             </label>
-            <label>
-                Masukkan Pesan:
-                <textarea name="message" required></textarea>
+            <label style="font-weight: bold; color: #333;">
+                Pesan :
+                <textarea name="message" required placeholder="Kirimi aku pesan..." rows="6" style="padding: 12px; border: 1px solid #ccc; border-radius: 5px; width: 100%; box-sizing: border-box; resize: none;"></textarea>
             </label>
-            <!-- your other form fields go here -->
-            <button type="submit">Kirim Pesan</button>
+            <button type="submit" style="padding: 12px; background-color: #CF984A; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Send</button>
         </form><!-- End Contact Form -->
 
       </div>
