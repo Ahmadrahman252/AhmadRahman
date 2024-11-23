@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Sak Gabutnya Ahman</title>
-  <meta name="description" content="Portofolio Ahmad Rahman, Junior Designer dan Developer.">
-  <meta name="keywords" content="Desain Grafis, Pengembangan Web, Freelancer, UX/UI">
+  <meta name="description" content="Bosan Bangett.">
+  <meta name="keywords" content="Gabuter">
 
   <!-- Favicons -->
-  <link href="assets/img/inf_c.png" rel="icon">
+  <link href="assets/img/hero.jpg" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -69,7 +69,7 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Akhmad Rahman<br></h2>
-         <p>Aku <span class="typed" data-typed-items="adalah seorang yang kadang tertawa sendiri tapi tidak gila, menangis tanpa alasan tapi bukan drama">Tetaplah Aku</span></p>
+        <p>Aku <span class="typed" data-typed-items="adalah seorang yang kadang tertawa sendiri tapi tidak gila, menangis tanpa alasan tapi bukan drama">Adalah Yin</span></p>
         <div class="social-links">
           <a href="https://github.com/Ahmadrahman252"><i class="bi bi-github"></i></a>
           <a href="https://www.facebook.com/profile.php?id=100050398081756"><i class="bi bi-facebook"></i></a>
@@ -114,10 +114,6 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
       <div class="container section-title text-center" data-aos="fade-up">
-        <br>
-        <br>
-        <br>
-        
         <h2>Biodata</h2>
       </div><!-- End Section Title -->
 
@@ -196,7 +192,27 @@
           </div>
         </div>
 
-        <form
+        
+    <!-- Tic-Tac-Toe Game Section -->
+    <section id="tictactoe" class="tictactoe section">
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2>Game Tic-Tac-Toe</h2>
+        <div id="gameBoard" style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; margin: auto; justify-content: center;">
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+          <div class="cell" onclick="makeMove(this)"></div>
+        </div>
+        <button onclick="resetGame()">Reset Game</button>
+        <p id="status"></p>
+      </div>
+    </section><!-- /Tic-Tac-Toe Game Section -->
+    <form
             action="https://formspree.io/f/xldengvw"
             method="POST"
             novalidate  
@@ -217,16 +233,21 @@
 
     </section><!-- /Contact Section -->
 
+
   </main>
 
   <footer id="footer" class="footer light-background">
     <div class="container">
       
         
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-github"></i></a>
+        <a href=""><i class="bi bi-youtube"></i></a>
+        <a href=""><i class="bi bi-envelope"></i></a>
       </div>
       <div class="container">
         <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">Ahmad Rahman</strong> <span></span>
+          <span>Copyright</span> <strong class="px-1 sitename">Ahmad Rahman</strong> <span>All Rights Reserved</span>
         </div>
         <div class="credits">
           
@@ -253,6 +274,64 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Add this JavaScript at the end of your body -->
+  <script>
+    let currentPlayer = 'X';
+    let board = ['', '', '', '', '', '', '', '', ''];
+
+    function makeMove(cell) {
+      const index = Array.from(cell.parentNode.children).indexOf(cell);
+      if (board[index] === '') {
+        board[index] = currentPlayer;
+        cell.innerText = currentPlayer;
+        if (checkWinner()) {
+          document.getElementById('status').innerText = `${currentPlayer} wins!`;
+          return;
+        }
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      }
+    }
+
+    function checkWinner() {
+      const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+      return winningCombinations.some(combination => {
+        const [a, b, c] = combination;
+        return board[a] && board[a] === board[b] && board[a] === board[c];
+      });
+    }
+
+    function resetGame() {
+      board = ['', '', '', '', '', '', '', '', ''];
+      currentPlayer = 'X';
+      document.querySelectorAll('.cell').forEach(cell => cell.innerText = '');
+      document.getElementById('status').innerText = '';
+    }
+  </script>
+
+  <!-- Add this CSS to your existing styles -->
+  <style>
+    .cell {
+      width: 100px;
+      height: 100px;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+  </style>
 
 </body>
 
